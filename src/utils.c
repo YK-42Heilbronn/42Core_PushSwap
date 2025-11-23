@@ -6,7 +6,7 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:05:00 by ykonka            #+#    #+#             */
-/*   Updated: 2025/11/22 21:11:29 by ykonka           ###   ########.fr       */
+/*   Updated: 2025/11/22 21:29:25 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // } 
 
 
-void swap(unsigned int *a, unsigned int *b){
+void swap_bw_two_stacks(unsigned int *a, unsigned int *b){
     // a is a pointer - stores address of an variable
     // b is a pointer - stores address of an variable
 
@@ -45,7 +45,7 @@ int get_top_index(unsigned int *stack){
     return ind;
 }
 
-void push(unsigned int *take_from, unsigned int *place_on){
+void push_to_stack(unsigned int *take_from, unsigned int *place_on){
     place_on[get_top_index(place_on)+1] = take_from[get_top_index(take_from)];
     // printf("%d\n", place_on[get_top_index(place_on)+1]);
     // free(&take_from[get_top_index(take_from)]);
