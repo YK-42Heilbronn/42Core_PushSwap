@@ -5,7 +5,7 @@ SCRS = ft_printf.c ft_putchars.c ft_puthexa.c \
 	ft_putints.c ft_uitoa.c parser.c specifiers.c validate.c
 OBJ = $(SCRS:.c=.o)
 
-LIBFT_DIR = ./libft
+LIBFT_DIR = ../libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 all: $(LIBFT) $(NAME)

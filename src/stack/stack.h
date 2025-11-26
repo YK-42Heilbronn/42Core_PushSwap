@@ -6,7 +6,7 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 18:56:28 by ykonka            #+#    #+#             */
-/*   Updated: 2025/11/22 20:29:59 by ykonka           ###   ########.fr       */
+/*   Updated: 2025/11/23 15:10:55 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct{
 } Stack;
 
 // stack.c
-Stack initialize_stack(int size);
+Stack* initialize_stack(int size);
 void free_stack(Stack *stack);
 
 // ops.c

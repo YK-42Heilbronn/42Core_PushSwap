@@ -3,7 +3,7 @@ NAME = stack.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = stack.c ops.c
+SRCS = stack.c functions.c
 
 OBJS = $(SRCS:%.c=%.o)
 

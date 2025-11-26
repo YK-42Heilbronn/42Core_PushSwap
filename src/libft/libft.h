@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykonka <ykonka@student.42.fr>              #+#  +:+       +#+        */
+/*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-04 08:50:10 by ykonka            #+#    #+#             */
-/*   Updated: 2025-04-04 08:50:10 by ykonka           ###   ########.fr       */
+/*   Created: 2025/04/04 08:50:10 by ykonka            #+#    #+#             */
+/*   Updated: 2025/11/25 19:39:44 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+# include <signal.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

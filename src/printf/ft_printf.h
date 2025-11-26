@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykonka <ykonka@student.42.fr>              #+#  +:+       +#+        */
+/*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-10 16:10:26 by ykonka            #+#    #+#             */
-/*   Updated: 2025-05-10 16:10:26 by ykonka           ###   ########.fr       */
+/*   Created: 2025/05/10 16:10:26 by ykonka            #+#    #+#             */
+/*   Updated: 2025/11/26 11:27:11 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
