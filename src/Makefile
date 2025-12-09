@@ -1,7 +1,9 @@
 # NAME = push_swap.a
 NAME = push_swap
 
-SCRS = utils.c ops.c parser.c push_swap.c
+SCRS = utils.c parser.c push_swap.c \
+		ops/min_ops.c ops/max_ops.c ops/ops.c\
+		sort_b_to_a/collect_info.c sort_b_to_a/sort_utils.c
 CFLAGS = -Wall -Werror -Wextra
 OBJ = $(SCRS:.c=.o)
 
