@@ -2,8 +2,22 @@
 docs/*
 examples/*
 tests/*
-excludes/*# Prerequisites
+excludes/*
+checker/*
+.vscode/*
+src/*
+push_swap
+test/*
+# src/testing_ideas/*
+src/V0.0/*
+src/yamini/*
+src/V1.0/test/*
+src/V1.0/push_swap
+src/V2.0/*
+
+# Prerequisites
 *.d
+# push_swap_strategy2.c
 
 # Object files
 *.o
