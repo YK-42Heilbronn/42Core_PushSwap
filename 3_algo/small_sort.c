@@ -6,7 +6,7 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 13:57:48 by ykonka            #+#    #+#             */
-/*   Updated: 2026/02/27 23:52:20 by ykonka           ###   ########.fr       */
+/*   Updated: 2026/02/27 23:58:03 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,32 +39,33 @@ static void	sort_three(t_stack *a)
 	}
 }
 
-int get_min(int *stack, int n)
+int	get_min(int *stack, int n)
 {
-    int i;
-    int min;
+	int	i;
+	int	min;
 
-    i = 0;
-    min = stack[i];
-    while (i < n)
-    {
-        if (stack[i] < min)
-            min = stack[i];
-        i++;
-    }
-    return (min);
+	i = 0;
+	min = stack[i];
+	while (i < n)
+	{
+		if (stack[i] < min)
+			min = stack[i];
+		i++;
+	}
+	return (min);
 }
 
 // rotate 'a' until 'min' is at the *top* (index a->top)
-static void bring_min_to_top(t_stack *a, int min, int n)
+static void	bring_min_to_top(t_stack *a, int min, int n)
 {
-    int i = 0;
+	int	i;
 
-    while (i < n && a->stack[a->top] != min)
-    {
-        ra(a);
-        i++;
-    }
+	i = 0;
+	while (i < n && a->stack[a->top] != min)
+	{
+		ra(a);
+		i++;
+	}
 }
 
 // Here we assume a->top == n - 1 at the beginning.
@@ -74,22 +75,21 @@ static void bring_min_to_top(t_stack *a, int min, int n)
 // now A has one fewer element, so top should be n-1 again
 // sort remaining 3 in a
 // push them back
-void sort_four_or_five(t_stack *a, t_stack *b, int n)
+void	sort_four_or_five(t_stack *a, t_stack *b, int n)
 {
-    int min;
+	int	min;
 
-    while (n > 3)
-    {
-        min = get_min(a->stack, n);
-        bring_min_to_top(a, min, n);
-        pb(a, b);
-        n--;
-    }
-    sort_three(a);
-    while (!isempty(b))
-        pa(a, b);
+	while (n > 3)
+	{
+		min = get_min(a->stack, n);
+		bring_min_to_top(a, min, n);
+		pb(a, b);
+		n--;
+	}
+	sort_three(a);
+	while (!isempty(b))
+		pa(a, b);
 }
-
 
 /* for 4–5 can be extend with push smallest to B, sort 3,
 		then bring back */
@@ -105,4 +105,3 @@ void	sort_small(t_stack *a, t_stack *b, int n)
 	else
 		sort_four_or_five(a, b, n);
 }
-

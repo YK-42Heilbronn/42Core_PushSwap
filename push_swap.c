@@ -6,7 +6,7 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 07:37:11 by ykonka            #+#    #+#             */
-/*   Updated: 2026/02/27 23:44:34 by ykonka           ###   ########.fr       */
+/*   Updated: 2026/02/27 23:57:58 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	push_swap(int **pt_indices, int *pt_len);
 static void	start_sorting(t_stack **a, t_stack **b, int *len);
-static int is_stack_decending(int *values, int len);
+static int	is_stack_decending(int *values, int len);
 
 /* fill A with indices, top at end of input */
 int	main(int argc, char **argv)
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	int	len;
 	int	*values;
 	int	*indices;
+	int	*v;
 
 	if (argc < 2)
 		return (0);
@@ -31,7 +32,6 @@ int	main(int argc, char **argv)
 	indices = index_values(values, len);
 	if (is_stack_decending(values, len))
 		return (0);
-	int *v;
 	v = values;
 	free(values);
 	if (!indices)
@@ -74,14 +74,14 @@ static void	start_sorting(t_stack **a, t_stack **b, int *len)
 	free_stack(*b);
 }
 
-static int is_stack_decending(int *values, int len)
+static int	is_stack_decending(int *values, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len - 1)
 	{
-		if (values[i] > values[i+1])
+		if (values[i] > values[i + 1])
 			return (0);
 		i++;
 	}
