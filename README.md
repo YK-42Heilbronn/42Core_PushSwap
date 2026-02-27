@@ -48,3 +48,4 @@ $ ./push_swap "1" "2 9 " "     -3  8"
 - [radix sort visualization](https://www.youtube.com/watch?v=Y95a-8oNqps)
 - [bitwise operators](https://www.geeksforgeeks.org/c/bitwise-operators-in-c-cpp/)
 
+- AI: ai is used during implementation and project study

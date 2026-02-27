@@ -6,7 +6,7 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 13:57:48 by ykonka            #+#    #+#             */
-/*   Updated: 2026/02/27 19:31:58 by ykonka           ###   ########.fr       */
+/*   Updated: 2026/02/27 23:52:20 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,62 @@ static void	sort_three(t_stack *a)
 	}
 }
 
+int get_min(int *stack, int n)
+{
+    int i;
+    int min;
+
+    i = 0;
+    min = stack[i];
+    while (i < n)
+    {
+        if (stack[i] < min)
+            min = stack[i];
+        i++;
+    }
+    return (min);
+}
+
+// rotate 'a' until 'min' is at the *top* (index a->top)
+static void bring_min_to_top(t_stack *a, int min, int n)
+{
+    int i = 0;
+
+    while (i < n && a->stack[a->top] != min)
+    {
+        ra(a);
+        i++;
+    }
+}
+
+// Here we assume a->top == n - 1 at the beginning.
+// find min among 0..n-1 (valid elements)
+// rotate until that min is at index a->top
+// push min to stack b; this should decrease a->top and increase b->top
+// now A has one fewer element, so top should be n-1 again
+// sort remaining 3 in a
+// push them back
+void sort_four_or_five(t_stack *a, t_stack *b, int n)
+{
+    int min;
+
+    while (n > 3)
+    {
+        min = get_min(a->stack, n);
+        bring_min_to_top(a, min, n);
+        pb(a, b);
+        n--;
+    }
+    sort_three(a);
+    while (!isempty(b))
+        pa(a, b);
+}
+
+
 /* for 4–5 can be extend with push smallest to B, sort 3,
 		then bring back */
 void	sort_small(t_stack *a, t_stack *b, int n)
 {
-	(void)b;
 	if (n == 2)
 	{
 		if (a->stack[a->top] > a->stack[a->top - 1])
@@ -51,4 +102,7 @@ void	sort_small(t_stack *a, t_stack *b, int n)
 	}
 	else if (n == 3)
 		sort_three(a);
+	else
+		sort_four_or_five(a, b, n);
 }
+
