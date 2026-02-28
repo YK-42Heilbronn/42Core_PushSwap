@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/26 13:58:46 by ykonka            #+#    #+#             */
-/*   Updated: 2026/02/28 01:06:26 by ykonka           ###   ########.fr       */
+/*   Created: 2026/02/28 00:39:33 by ykonka            #+#    #+#             */
+/*   Updated: 2026/02/28 00:39:46 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-void	print_error_exit(void *str)
+long	ft_atol(const char *str)
 {
-	char	*error;
+	int		minus;
+	long	result;
 
-	error = "Error\n";
-	write(1, error, ft_strlen(error));
-	free(str);
-	exit(1);
+	minus = 1;
+	result = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r'
+		|| *str == '\v' || *str == '\f')
+		str++;
+	if (*str == 45 || *str == 43)
+	{
+		minus = 44 - *str;
+		str++;
+	}
+	while (*str)
+		if (*str >= 48 && *str <= 57)
+			result = (result * 10) + (*str++ - 48);
+	return (result * minus);
 }

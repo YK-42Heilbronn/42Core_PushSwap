@@ -3,7 +3,7 @@ NAME = push_swap
 SCRS = 1_parsing/clean_and_prepare.c 1_parsing/compute_count.c \
 		2_stack/stack_init.c 2_stack/stack_ops_basic.c \
 		3_algo/index_normalize.c 3_algo/radix_sort.c 3_algo/small_sort.c \
-		4_utils/error.c 4_utils/str_mans.c \
+		4_utils/error.c 4_utils/str_mans.c 4_utils/ft_atol.c \
 		push_swap.c
 CFLAGS = -Wall -Werror -Wextra
 OBJ = $(SCRS:.c=.o)

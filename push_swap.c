@@ -6,7 +6,7 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 07:37:11 by ykonka            #+#    #+#             */
-/*   Updated: 2026/02/27 23:57:58 by ykonka           ###   ########.fr       */
+/*   Updated: 2026/02/28 01:13:04 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 static void	push_swap(int **pt_indices, int *pt_len);
 static void	start_sorting(t_stack **a, t_stack **b, int *len);
-static int	is_stack_decending(int *values, int len);
+static int	is_stack_decending(long *values, int len);
+void		is_out_of_int_range(long **values, int *len);
 
 /* fill A with indices, top at end of input */
 int	main(int argc, char **argv)
 {
-	int	len;
-	int	*values;
-	int	*indices;
-	int	*v;
+	int		len;
+	long	*values;
+	int		*indices;
 
 	if (argc < 2)
 		return (0);
 	values = prepare_stack(argc, argv, &len);
 	if (!values)
 		print_error_exit(NULL);
+	is_out_of_int_range(&values, &len);
 	indices = index_values(values, len);
 	if (is_stack_decending(values, len))
 		return (0);
-	v = values;
 	free(values);
 	if (!indices)
 		print_error_exit(NULL);
@@ -74,7 +74,7 @@ static void	start_sorting(t_stack **a, t_stack **b, int *len)
 	free_stack(*b);
 }
 
-static int	is_stack_decending(int *values, int len)
+static int	is_stack_decending(long *values, int len)
 {
 	int	i;
 
@@ -86,4 +86,17 @@ static int	is_stack_decending(int *values, int len)
 		i++;
 	}
 	return (1);
+}
+
+void	is_out_of_int_range(long **values, int *len)
+{
+	int	i;
+
+	i = 0;
+	while (i < *len)
+	{
+		if ((*values)[i] < INT_MIN || (*values)[i] > INT_MAX)
+			print_error_exit((void *)*values);
+		i++;
+	}
 }

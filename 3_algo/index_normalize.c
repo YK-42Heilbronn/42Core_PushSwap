@@ -6,22 +6,22 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 13:57:22 by ykonka            #+#    #+#             */
-/*   Updated: 2026/02/27 20:22:06 by ykonka           ###   ########.fr       */
+/*   Updated: 2026/02/28 01:13:59 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	index_sorted_array(int **sorted, int **idx, int *vals, int *n);
-static void	bubble_sort(int **sorted, int *n);
+static void	index_sorted_array(long **sorted, int **idx, long *vals, int *n);
+static void	bubble_sort(long **sorted, int *n);
 
-int	*index_values(int *vals, int n)
+int	*index_values(long *vals, int n)
 {
-	int	*sorted;
-	int	*idx;
-	int	i;
+	long	*sorted;
+	int		*idx;
+	int		i;
 
-	sorted = (int *)malloc(sizeof(int) * n);
+	sorted = (long *)malloc(sizeof(long) * n);
 	idx = (int *)malloc(sizeof(int) * n);
 	if (!sorted || !idx)
 	{
@@ -37,7 +37,7 @@ int	*index_values(int *vals, int n)
 	return (idx);
 }
 
-static void	bubble_sort(int **sorted, int *n)
+static void	bubble_sort(long **sorted, int *n)
 {
 	int	i;
 	int	j;
@@ -59,7 +59,7 @@ static void	bubble_sort(int **sorted, int *n)
 	}
 }
 
-static void	index_sorted_array(int **sorted, int **idx, int *vals, int *n)
+static void	index_sorted_array(long **sorted, int **idx, long *vals, int *n)
 {
 	int	i;
 	int	j;

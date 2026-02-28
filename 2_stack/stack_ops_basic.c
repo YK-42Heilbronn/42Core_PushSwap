@@ -6,7 +6,7 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 13:57:00 by ykonka            #+#    #+#             */
-/*   Updated: 2026/02/27 19:28:28 by ykonka           ###   ########.fr       */
+/*   Updated: 2026/02/28 00:35:02 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	pa(t_stack *a, t_stack *b)
 	if (isempty(b))
 		return ;
 	a->stack[++a->top] = b->stack[b->top--];
-	if (PRINT)
-		write(1, ops, ft_strlen(ops));
+	write(1, ops, ft_strlen(ops));
 }
 
 void	pb(t_stack *a, t_stack *b)
@@ -32,8 +31,7 @@ void	pb(t_stack *a, t_stack *b)
 	if (isempty(a))
 		return ;
 	b->stack[++b->top] = a->stack[a->top--];
-	if (PRINT)
-		write(1, ops, ft_strlen(ops));
+	write(1, ops, ft_strlen(ops));
 }
 
 void	ra(t_stack *a)
@@ -53,8 +51,7 @@ void	ra(t_stack *a)
 		i--;
 	}
 	a->stack[0] = top_val;
-	if (PRINT)
-		write(1, ops, ft_strlen(ops));
+	write(1, ops, ft_strlen(ops));
 }
 
 void	rra(t_stack *a)
@@ -74,8 +71,7 @@ void	rra(t_stack *a)
 		i++;
 	}
 	a->stack[a->top] = bottom_val;
-	if (PRINT)
-		write(1, ops, ft_strlen(ops));
+	write(1, ops, ft_strlen(ops));
 }
 
 void	sa(t_stack *a)
@@ -89,6 +85,5 @@ void	sa(t_stack *a)
 	tmp = a->stack[a->top];
 	a->stack[a->top] = a->stack[a->top - 1];
 	a->stack[a->top - 1] = tmp;
-	if (PRINT)
-		write(1, ops, ft_strlen(ops));
+	write(1, ops, ft_strlen(ops));
 }

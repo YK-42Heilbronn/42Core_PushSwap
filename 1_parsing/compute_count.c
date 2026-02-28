@@ -6,14 +6,14 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 13:28:25 by ykonka            #+#    #+#             */
-/*   Updated: 2026/02/27 19:32:59 by ykonka           ###   ########.fr       */
+/*   Updated: 2026/02/28 01:26:37 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 static int	count_tokens_in_arg(char *arg);
-static void	validate_char_or_exit(char c, char next);
+static void	validate_char_or_exit(char c, char next, char *arg);
 
 void	clean_argvs(int argc, char *argvs[], int *len)
 {
@@ -27,7 +27,7 @@ void	clean_argvs(int argc, char *argvs[], int *len)
 	{
 		cleaned = ft_strtrim(argvs[i], " \t\n\f\v\r");
 		if (!cleaned || *cleaned == '\0')
-			print_error_exit(cleaned);
+			print_error_exit((void *)cleaned);
 		total += count_tokens_in_arg(cleaned);
 		free(cleaned);
 		i++;
@@ -47,7 +47,7 @@ static int	count_tokens_in_arg(char *arg)
 	in_token = 0;
 	while (arg[i])
 	{
-		validate_char_or_exit(arg[i], arg[i + 1]);
+		validate_char_or_exit(arg[i], arg[i + 1], arg);
 		if (ft_is_space(arg[i]))
 			in_token = 0;
 		else if (ft_isdigit(arg[i]))
@@ -63,19 +63,19 @@ static int	count_tokens_in_arg(char *arg)
 	return (nums);
 }
 
-static void	validate_char_or_exit(char c, char next)
+static void	validate_char_or_exit(char c, char next, char *arg)
 {
 	if (!ft_is_space(c) && !ft_isdigit(c) && !ft_isoperator(c))
-		print_error_exit(NULL);
+		print_error_exit(arg);
 	if (ft_isoperator(c))
 	{
 		if (next != '\0' && !ft_isdigit(next))
-			print_error_exit(NULL);
+			print_error_exit(arg);
 	}
 }
 
 /* O(n) duplicate check against values seen so far */
-int	is_duplicate(int *seen, int used, int value)
+int	is_duplicate(long *seen, int used, int value)
 {
 	int	k;
 
