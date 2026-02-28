@@ -6,7 +6,7 @@
 /*   By: ykonka <ykonka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 07:37:11 by ykonka            #+#    #+#             */
-/*   Updated: 2026/02/28 01:13:04 by ykonka           ###   ########.fr       */
+/*   Updated: 2026/02/28 02:10:58 by ykonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ int	main(int argc, char **argv)
 	is_out_of_int_range(&values, &len);
 	indices = index_values(values, len);
 	if (is_stack_decending(values, len))
+	{
+		free(indices);
+		free(values);
 		return (0);
+	}
 	free(values);
 	if (!indices)
 		print_error_exit(NULL);
